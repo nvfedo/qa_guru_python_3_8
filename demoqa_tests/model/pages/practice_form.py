@@ -1,8 +1,8 @@
 from selene import have, be
 from selene.support.shared import browser
-import demoqa_tests.utils.picture_path
 from demoqa_tests.model.controls import checkboxes
 from demoqa_tests.model.controls import datepicker, radiobutton, dropdown
+from demoqa_tests.utils import picture_path
 
 
 def open_practice_form_page():
@@ -41,8 +41,9 @@ def set_hobby(hobby):
     checkboxes.checkboxes_click(browser.all('[for^=hobbies-checkbox]'), hobby)
 
 
-def upload_file(value):
-    demoqa_tests.utils.picture_path.download_files(value)
+def upload_file(path_to_picture):
+    picture_path.download_files('#uploadPicture', path_to_picture)
+    # demoqa_tests.utils.picture_path.download_files(value)
 
 
 def set_current_address(address):
